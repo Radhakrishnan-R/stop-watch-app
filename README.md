@@ -1,3 +1,3 @@
 # stop-watch-app
 
-Live - Site : https://github.com/Radhakrishnan-R/stop-watch-app/settings/pages
+Live - Site : https://radhakrishnan-r.github.io/stop-watch-app/
