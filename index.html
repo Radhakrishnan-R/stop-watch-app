@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>00:00:00</h1>
+        <div class="timer-controls">
+            <img src="./images/stop.png" alt="stop-icon" onclick="stopWatch()">
+            <img src="./images/start.png" alt="start-icon" onclick="startWatch()">
+            <img src="./images/reset.png" alt="reset-icon" onclick="resetWatch()">
+        </div>
+    </div>
+
+<script type="text/javascript" >
+    const time = document.querySelector("h1");
+    let [hours, minutes, seconds] = [0,59,55];
+
+    var timer1 = null;
+
+    function timer(){
+        seconds++;
+        console.log(seconds);
+        if(seconds == 60){
+            minutes++;
+            seconds = 0;
+            if(minutes == 60){
+                hours++;
+                minutes = 0;
+            }
+        }
+
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+
+        time.innerHTML= `${h}:${m}:${s}`;
+    }
+
+    function startWatch(){
+        if(timer1 == null){
+            console.log("hry");
+            
+            timer1 = setInterval(timer, 1000);
+        }else{
+            console.log("h1212");
+            clearInterval(timer1);
+        }
+        // console.log(document.querySelectorAll("img")[1]);
+        // document.querySelectorAll("img")[1].style.enabled = false;
+        
+       
+    }
+
+    function stopWatch(){
+        clearInterval(timer1);
+    }
+
+    function resetWatch(){
+        time.innerHTML = "00:00:00";
+        [hours, minutes, seconds] = [0,0,0];
+        timer1 = null;
+    }
+</script>
+</body>
+</html>
